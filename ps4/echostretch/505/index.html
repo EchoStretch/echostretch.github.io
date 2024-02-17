@@ -1,0 +1,261 @@
+<!doctype html>
+<html manifest="Cache.manifest">
+<head>
+<style>
+html, body{
+background-color: black;
+}
+.button {
+  background-color: black;
+  border-radius: 25px;
+  color: white;
+  padding: 0px;
+  text-align: center;
+  font-size: 16px;
+  width: 175px;
+  height: 40px; 
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.pb1 {
+  background-color: black; 
+  border-radius: 10px;
+  color: white; 
+  border: 2px solid red;
+}
+.pb1:hover {
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+}
+.TextCaption{
+display: block;
+font-size: 20px;
+color: #fff;
+text-decoration: none;
+}
+a img {
+    display: inline-block;  text-decoration: none;
+}
+a {
+    display: inline-block;  text-decoration: none;
+}
+
+a:hover img, a:hover .TextCaption{
+transform: scale(1.1)
+}
+</style>
+<meta charset="utf-8">
+<title>Echo Stretch 5.05 Host</title>
+		<script>
+			window.applicationCache.ondownloading=function(){document.getElementById("st").innerHTML="Page Caching Started!!";};
+			window.applicationCache.onprogress=function(a){document.getElementById("st").innerHTML=(Math.round(100*(a.loaded/a.total)))+"%";};
+			window.applicationCache.oncached=function(){document.getElementById("st").innerHTML="Page Cached Successfully!!";};
+		</script>	
+</head>
+
+<body>
+<h1 style="text-align:center;font-size:25px;color:white;">Echo Stretch 5.05 Host</h1>
+<h1 id="st" style="text-align:center;font-size:25px;color:white;">Status</h1>
+<div id="loader1"></div><div id="loader2"></div>
+<div id="loader3" style="text-align:center;font-size:25px;color:white;display:none">Loading</div>
+<div id="done1" class="info"></div>
+<div id="done2" class="info" style="display:none"></div>
+<div id="done3" class="info" style="display:none"></div><br><div class="ib"></div>
+<div id="fail" class="info" style="display:none"></div>
+<br>
+<div id="all" style="text-align:center">
+<button class="button pb1" onMouseOver="st.innerHTML='hen+mira'" onmouseout="st.innerHTML='Status'" onclick="load_mirahen(); return false"> Mira Hen 19 </button>
+<button class="button pb1" onMouseOver="st.innerHTML='GoldHen v2.4 B16.2 by SISTR0'" onmouseout="st.innerHTML='Status'" onclick="load_goldhen(); return false"> GoldHEN 2.4 B16.2 </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='WebRTE For 5.05'" onmouseout="st.innerHTML='Status'" onclick="load_webrte(); return false"> WebRTE </button>
+<button class="button pb1" onMouseOver="st.innerHTML='PS4debug For 5.05'" onmouseout="st.innerHTML='Status'" onclick="load_PS4Debug(); return false"  > Ps4debug </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Orbis Toolbox For 5.05'" onmouseout="st.innerHTML='Status'" onclick="load_orbis(); return false"> Orbis Toolbox </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Orbis (PS4) Application File Redirector for edit in-game file easily by TheoryWrong'" onmouseout="st.innerHTML='Status'" onclick="load_orbisafr(); return false"> Orbis AFR </button>
+<button class="button pb1" onMouseOver="st.innerHTML='FTP Server For 5.05'" onmouseout="st.innerHTML='Status'" onclick="load_ftp(); return false"> FTP </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='Move Installed Games To An External USB Drive'" onmouseout="st.innerHTML='Status'" onclick="load_App2USB(); return false"> App2USB </button>
+<button class="button pb1" onMouseOver="st.innerHTML='ToDEX'" onmouseout="st.innerHTML='Status'" onclick="load_todex()"> ToDex </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Creates Dummy Files In The PS4 Update Folder'" onmouseout="st.innerHTML='Status'" onclick="load_disableupdate(); return false"> Disable Updates</button>
+<button class="button pb1" onMouseOver="st.innerHTML='Removes The Dummy Files In The PS4 Update Folder'" onmouseout="st.innerHTML='Status'" onclick="load_enableupdate(); return false"> Enable Update </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Disable The Auto Opening Of The Last Page Used In The PS4 WebBrowser'" onmouseout="st.innerHTML='Status'" onclick="load_historyblocker(); return false"> History Blocker </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='All Dumper Payloads'" onmouseout="st.innerHTML='Status'" onclick="alldumpers(); return false"> Dumper Group </button>
+<button class="button pb1" onMouseOver="st.innerHTML='All Restore & Backup payloads'" onmouseout="st.innerHTML='Status'" onclick="allrestore(); return false"> Restore Group </button>
+<button class="button pb1" onMouseOver="st.innerHTML='All Linux Payloads'" onmouseout="st.innerHTML='Status'" onclick="alllinux(); return false"> Linux Group </button>
+<button class="button pb1" onMouseOver="st.innerHTML='All Tools Payloads'" onmouseout="st.innerHTML='Status'" onclick="alltools(); return false"> Tools Group </button>
+<button class="button pb1" onMouseOver="st.innerHTML='All GTA V Mod Payloads'" onmouseout="st.innerHTML='Status'" onclick="gtamods(); return false"> GTAV Mods Group </button>
+<button class="button pb1" onMouseOver="st.innerHTML='All RDR2 Mod Payloads'" onmouseout="st.innerHTML='Status'" onclick="rdr2mods(); return false"> RDR2 Mods Group </button>
+</div>
+<div id="Tools" style="text-align:center;display:none">
+<button  class="button pb1" onMouseOver="st.innerHTML='Back To The Main Menu'" onmouseout="st.innerHTML='Status'" onclick="backall(); return false"> Back to Menu </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='ReactPSPlus By Zer0xFF / Al Azif for 5.05'" onmouseout="st.innerHTML='Status'" onclick="load_react(); return false">ReactPSplus</button>
+<button class="button pb1" onMouseOver="st.innerHTML='DeactPSPlus By Zer0xFF / Al Azif for 5.05'" onmouseout="st.innerHTML='Status'" onclick="load_deact(); return false">DeactPSplus</button>
+<button class="button pb1" onMouseOver="st.innerHTML='ReactPSPlus Moddable v1.0 By Zer0xFF/Leeful 5.05'" onmouseout="st.innerHTML='Status'" onclick="load_reactM(); return false">ReactPSplusMOD</button>
+<button class="button pb1" onMouseOver="st.innerHTML='Change License Hen to Mira'" onmouseout="st.innerHTML='Status'" onclick="load_rif()"> Rif Renamer </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='Active Remote Play'" onmouseout="st.innerHTML='Status'" onclick="load_ren(); return false"> Remoteplay </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Install Game from Lan'" onmouseout="st.innerHTML='Status'" onclick="load_infinix(); return false"> Infinix </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Fan Controller'" onmouseout="st.innerHTML='Status'" onclick="load_fanthresh(); return false"> Fan Controller </button>
+</div>
+<div id="Dumper" style="text-align:center;display:none">
+<button  class="button pb1" onMouseOver="st.innerHTML='Back To The Main Menu'" onmouseout="st.innerHTML='Status'" onclick="backall(); return false"> Back to Menu </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='PS4 PKG Backup by Kameleon'" onmouseout="st.innerHTML='Status'" onclick="load_pkgb(); return false"> PKG Backup </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Kernel Dumper'" onmouseout="st.innerHTML='Status'" onclick="load_kdumper();"> Kernel Dumper </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Game Dumper'" onmouseout="st.innerHTML='Status'" onclick="load_dumper();"> Dumper </button>
+</div>
+<div id="Restore" style="text-align:center;display:none">
+<button  class="button pb1" onMouseOver="st.innerHTML='Back To The Main Menu'" onmouseout="st.innerHTML='Status'" onclick="backall(); return false"> Back to Menu </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='Backup Trophy'" onmouseout="st.innerHTML='Status'" onclick="load_trpb(); return false"> Trophy Backup </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Restore Trophy'" onmouseout="st.innerHTML='Status'" onclick="load_trpr(); return false"> Trophy Restore </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='DB Backup'" onmouseout="st.innerHTML='Status'" onclick="load_dbBackup(); return false"> DB Backup </button>
+<button class="button pb1" onMouseOver="st.innerHTML='DB Restore'" onmouseout="st.innerHTML='Status'" onclick="load_dbRestore(); return false"> DB Restore </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='Save Games'" onmouseout="st.innerHTML='Status'" onclick="load_saveb(); return false"> Save Backup </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Restore Save Games'" onmouseout="st.innerHTML='Status'" onclick="load_saver(); return false"> Save Restore </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Save Mount'" onmouseout="st.innerHTML='Status'" onclick="load_savem(); return false"> Save Mount</button>
+</div>
+<div id="Linux" style="text-align:center;display:none">
+<button  class="button pb1" onMouseOver="st.innerHTML='Back To The Main Menu'" onmouseout="st.innerHTML='Status'" onclick="backall(); return false"> Back to Menu </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='Linux Loader 1GB'" onmouseout="st.innerHTML='Status'" onclick="load_linux1g(); return false"> Linux 1Gb </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Linux Loader 2GB'" onmouseout="st.innerHTML='Status'" onclick="load_linux2g(); return false"> Linux 2Gb </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Linux Loader 3GB'" onmouseout="st.innerHTML='Status'" onclick="load_linux3g(); return false"> Linux 3Gb </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Linux Loader 3GB'" onmouseout="st.innerHTML='Status'" onclick="load_linux4g(); return false"> Linux 4Gb </button>
+</div>
+<div id="gta" style="text-align:center;display:none">
+<button class="button pb1" onMouseOver="st.innerHTML='Back To The Main Menu'" onmouseout="st.innerHTML='Status'" onclick="backall(); return false"> Back to Menu </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='GTAV BeefQueefMod 1.46 by GraFfix_221211 '" onmouseout="st.innerHTML='Status'" onclick="load_gtabq(); return false"> BeefQueefMod </button>
+<button class="button pb1" onMouseOver="st.innerHTML='GTAV Mod Menu 1.46 by x_WildeModz_x'" onmouseout="st.innerHTML='Status'" onclick="load_gtawm(); return false"> GTAV WildeModz </button>
+<br><br>
+</div>
+<div id="rdr2" style="text-align:center;display:none">
+<button class="button pb1" onMouseOver="st.innerHTML='Back To The Main Menu'" onmouseout="st.innerHTML='Status'" onclick="backall(); return false"> Back to Menu </button>
+<br><br>
+<button class="button pb1" onMouseOver="st.innerHTML='Red Dead Redemption 2 ModMenu 1.29 V0.1.1 by david1337hax (R1 + Square) '" onmouseout="st.innerHTML='Status'" onclick="load_rdr129N(); return false"> RDR2 North V1.29 </button>	
+<button class="button pb1" onMouseOver="st.innerHTML='Red dead redemption 2 mod  menu V1.29 by RF0oDxM0Dz (R1 + Square)'" onmouseout="st.innerHTML='Status'" onclick="load_rdr129O(); return false"> RDR2 Oysters V1.29 </button>
+<button class="button pb1" onMouseOver="st.innerHTML='Red dead redemption 2 mod  menu V1.29 by 0x199'" onmouseout="st.innerHTML='Status'" onclick="load_rdr129H(); return false"> RDR2 Havana V1.29 </button>
+</div>
+<h1 style="text-align:center;font-size:25px;color:white">Massive Thanks - Leeful , AlAzif , SiSTRo And Many More...</h1>
+<h1 style="text-align:center;font-size:25px;color:white">Super Thanks For Testing - Bradley ( Twitter: @Bradley57659996 )</h1>
+<script>
+function getScript(source,callback){var gs = document.createElement('script');gs.src = source;gs.onload = callback;gs.async = false;document.body.appendChild(gs);}
+function loadScript(){getScript('exploit.js',function(){setTimeout(exploit,1000);});}
+function loadScript2(){getScript('exploit_bin_x2.js',function(){setTimeout(exploit,1000);});}
+function loadScript3(){getScript('exploit_bin_x3.js',function(){setTimeout(exploit,1000);});}
+function anim(){document.getElementById('loader3').style.display='block';document.getElementById('done2').style.display='block';}
+function allset() {
+window.st.innerHTML="Payload Loaded";
+}
+
+function failload() {
+alert("Error Loading. try again");
+}
+
+function load_goldhen(){ bin="pl_goldhen_2.4b16.bin";loadScript();anim();}
+function load_mirahen(){ bin1="o_mira.bin";bin2="o_hen19mira.bin";loadScript2();anim();}
+function load_orbisafr(){bin1="o_mira.bin";bin2="o_orbisafr.bin";bin3="o_hen19mira.bin";loadScript3();anim();}
+function load_binloader(){loadScriptb();anim();}
+function load_ftp(){bin="pl_ftp.bin";loadScript();anim();}
+function load_dumper(){bin="pl_dumper.bin";loadScript();anim();}
+function load_App2USB(){bin="pl_apptousb.bin";loadScript();anim();}
+function load_disableupdate(){bin="pl_updatesdisable.bin";loadScript();anim();}
+function load_enableupdate(){bin="pl_updatesenable.bin";loadScript();anim();}
+function load_historyblocker(){bin="pl_historyblock.bin";loadScript();anim();}
+function load_dbRestore(){bin="pl_databaserestore.bin";loadScript();anim();}
+function load_dbBackup(){bin="pl_databasebackup.bin";loadScript();anim();}
+function load_pkgb(){bin="pl_pkg-backup.bin";loadScript();anim();}
+function load_kdumper(){bin="pl_kerneldumper.bin";loadScript();anim();}
+function load_todex(){bin="pl_todex.bin";loadScript();anim();}
+function load_PS4Debug(){bin="pl_ps4debug.bin";loadScript();anim();}
+function load_webrte(){bin="pl_webrte.bin";loadScript();anim();}
+function load_linux1g(){bin="l_ps4-1gb.bin";loadScript();anim();}
+function load_linux2g(){bin="l_ps4-2gb.bin";loadScript();anim();}
+function load_linux3g(){bin="l_ps4-3gb.bin";loadScript();anim();}
+function load_linux4g(){bin="l_ps4-4gb.bin";loadScript();anim();}
+function load_rif(){bin="pl_rifrenamer.bin";loadScript();anim();}
+function load_gtawm(){  bin="gta_WildeModz146.bin";loadScript();anim();}
+function load_gtabq(){  bin="gta_BeefQueefMod146.bin.bin";loadScript();anim();}
+function load_ren(){  bin="pl_ps4ren.bin";loadScript();anim();}
+function load_infinix(){  bin="pl_infinix.bin";loadScript();anim();}
+function load_trpb(){bin="pl_trophybackup.bin";loadScript();anim(); }
+function load_trpr(){bin="pl_trophyrestore.bin";loadScript();anim();}
+function load_saveb(){bin="pl_savedatabackup.bin";loadScript();anim();}
+function load_saver(){bin="pl_savedatarestore.bin";loadScript();anim(); }
+function load_savem(){bin="pl_savemounter.bin";loadScript();anim();}
+function load_orbis(){bin="pl_orbistoolbox.bin";loadScript();anim();}
+function load_rdr129N(){bin="rdr2_northbeta011.bin";loadScript();anim();}
+function load_rdr129O(){bin="rdr2_oysters1.29.bin";loadScript();anim();}
+function load_rdr129H(){bin="rdr2_havana129.bin";loadScript();anim();}
+function load_react(){
+  var link = document.createElement('a');
+        document.body.appendChild(link);
+        link.href = 'react1.html';
+        link.target = '_blank';
+        link.click();
+}
+function load_deact(){
+  var link = document.createElement('a');
+        document.body.appendChild(link);
+        link.href = 'deact1.html';
+        link.target = '_blank';
+        link.click();
+}
+function load_reactM(){
+  var link = document.createElement('a');
+        document.body.appendChild(link);
+        link.href = 'reactM.html';
+        link.target = '_blank';
+        link.click();
+}
+function load_fanthresh(){
+  var link = document.createElement('a');
+        document.body.appendChild(link);
+        link.href = 'FanControl.html';
+        link.target = '_blank';
+        link.click();
+}
+function allrestore(){
+all.style.display = "none";
+Restore.style.display = "block";
+}
+function alltools(){
+all.style.display = "none"
+Tools.style.display = "block";
+}
+function alldumpers(){
+all.style.display = "none";
+Dumper.style.display = "block";
+}
+function alllinux(){
+all.style.display = "none";
+Linux.style.display = "block";
+}
+function gtamods(){
+all.style.display = "none";
+gta.style.display = "block";
+}
+function rdr2mods(){
+all.style.display = "none";
+rdr2.style.display = "block";
+}
+function backall(){
+all.style.display = "block";
+Restore.style.display = "none";
+Tools.style.display = "none";
+Dumper.style.display = "none";
+Linux.style.display = "none";
+gta.style.display = "none";
+rdr2.style.display = "none";
+}
+</script>
+</body>
+</html>

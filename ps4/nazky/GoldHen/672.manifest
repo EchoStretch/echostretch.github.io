@@ -1,0 +1,22 @@
+CACHE MANIFEST 
+# v5 
+# 11/03/2022-12:03:52,09 
+
+
+CACHE: 
+
+672.html
+672.manifest
+Jailbreak\672\exploit.js
+Jailbreak\672\helpers.js
+Jailbreak\672\jb.js
+Jailbreak\672\loader.js
+Jailbreak\672\malloc.js
+Jailbreak\672\preloader.js
+Jailbreak\672\rop.js
+Jailbreak\672\syscalls.js
+Jailbreak\672\syscalls2.js
+Payloads\goldhen_672.js
+
+NETWORK: 
+* 

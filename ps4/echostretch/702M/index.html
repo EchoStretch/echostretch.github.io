@@ -1,0 +1,321 @@
+<!doctype html>
+<html manifest="Cache.manifest">
+<head>
+<style>
+html, body{
+background-color: black;
+}
+.button {
+  background-color: black;
+  border-radius: 25px;
+  color: white;
+  padding: 0px;
+  text-align: center;
+  font-size: 16px;
+  width: 175px;
+  height: 40px; 
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.pb1 {
+  background-color: black; 
+  border-radius: 10px;
+  color: white; 
+  border: 2px solid red;
+}
+
+.pb1:hover {
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+}
+</style>
+<meta charset="utf-8">
+<title>Echo Stretch 7.02 Manual</title>
+<script>
+  document.cookie = 'kex=1';
+</script>
+
+<script>
+  window.applicationCache.ondownloading=function(){document.getElementById("msgs2").innerHTML="Caching Started!!"};
+  window.applicationCache.onprogress=function(a){document.getElementById("msgs2").innerHTML="Caching Status: "+(Math.round(100*(a.loaded/a.total)))+"% Completed"};
+  window.applicationCache.oncached=function(){document.getElementById("msgs2").innerHTML="Cached Successfully!!";setTimeout(function(){document.getElementById("msgs2").innerHTML="Turn off internet"; }, 1500);};
+</script>
+</head>
+
+<body onload="go()">
+<h1 style="text-align:center;font-size:25px;color:white;">Echo Stretch 7.02</h1>
+<h1 id="msgs2" style="text-align:center;font-size:20px;color:white;">Status</h1>
+
+<div style="text-align:center">
+<a href="goldhen23.html"><button class="button pb1" onMouseOver="msgs2.innerHTML='GoldHen v2.3 by SISTR0 for PS4 7.02'" onmouseout="msgs2.innerHTML='Status'">GoldHenV2.3</button></a>
+<br><br>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='WebRTE for PS4 7.02 fw'" onmouseout="msgs2.innerHTML='Status'" onclick="load_WebRTE()"> WebRTE </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='ps4debug'" onmouseout="msgs2.innerHTML='Status'" onclick="load_PS4Debug()"> Ps4debug </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Orbis Toolbox Loader Alfa 1190 for PS4 7.02 fw'" onmouseout="msgs2.innerHTML='Status'" onclick="load_Orbis()"> Orbis Toolbox </button>	
+<button class="button pb1" onMouseOver="msgs2.innerHTML='A full access FTP server for the PS4'" onmouseout="msgs2.innerHTML='Status'" onclick="load_FTP()"> FTP </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Move installed games to an external USB drive'" onmouseout="msgs2.innerHTML='Status'" onclick="load_App2USB()"> App2USB </button>
+<br><br>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='unlocks some debug features available on testkit'" onmouseout="msgs2.innerHTML='Status'" onclick="load_TODEX()"> ToDex </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Removes the dummy files in the PS4 update folder'" onmouseout="msgs2.innerHTML='Status'" onclick="load_EnableUpdates()"> Enable Update </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Creates dummy files in the PS4 update folder'" onmouseout="msgs2.innerHTML='Status'" onclick="load_DisableUpdates()"> Disable Updates</button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Disable the auto opening of the last page used in the PS4 WebBrowser'" onmouseout="msgs2.innerHTML='Status'" onclick="load_HistoryBlocker()"> History Blocker </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Enable Browser'" onmouseout="msgs2.innerHTML='Status'" onclick="load_EnableBrowser()"> Enable Browser </button>
+<br><br>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='PS4 PKG Backup by Kameleon'" onmouseout="msgs2.innerHTML='Status'" onclick="load_pkgb()"> PKG Backup </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Dump Games to a USB drive to be able to create fpkg files'" onmouseout="msgs2.innerHTML='Status'" onclick="load_AppDumper()"> Dumper Game </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Create a backup of important database files ans User Data'" onmouseout="msgs2.innerHTML='Status'" onclick="load_BackupDB()"> DB Backup </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Restore a backup of the database files and User Data'" onmouseout="msgs2.innerHTML='Status'" onclick="load_RestoreDB()"> DB Restore </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Linux Loader 1G'" onmouseout="msgs2.innerHTML='Status'" onclick="load_Linux()"> Linux 1G </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Linux Loader 3G'" onmouseout="msgs2.innerHTML='Status'" onclick="load_Linux3gb()"> Linux 3G </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Disable IDU Mode CE-30391-6'" onmouseout="msgs2.innerHTML='Status'" onclick="load_FIX()"> Exit IDU </button>
+<br><br>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='GTAV ArabicGuy 1.00 for 7.02 '" onmouseout="msgs2.innerHTML='Status'" onclick="load_GTAAr1()"> GTAV A1 </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='GTAV ArabicGuy 1.27 for 7.02 '" onmouseout="msgs2.innerHTML='Status'" onclick="load_GTAAr2()"> GTAV A2 </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='GTAV ArabicGuy 1.32 for 7.02 '" onmouseout="msgs2.innerHTML='Status'" onclick="load_GTAAr3()"> GTAV A3 </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='GTAV Lamance 1.32 for 7.02 '" onmouseout="msgs2.innerHTML='Status'" onclick="load_GTAL()"> GTAV L </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='GTAV BeefQueefMod 1.32 for 7.02 '" onmouseout="msgs2.innerHTML='Status'" onclick="load_GTABQ132()"> GTAV BQ1 </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='GTAV BeefQueefMod 1.33 for 7.02 '" onmouseout="msgs2.innerHTML='Status'" onclick="load_GTABQ133()"> GTAV BQ2 </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='GTAV Lamance v9.00 Mode Menu for 1.38 by david1337hax '" onmouseout="msgs2.innerHTML='Status'" onclick="load_gtavl9()"> GTAV L 138 </button>
+<br><br>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Red dead redemption 2 mod  menu 1.00 V1.3.8 by RF0oDxM0Dz (R1 + Square) '" onmouseout="msgs2.innerHTML='Status'" onclick="load_Oysters100()"> RDR2 V1.00 </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Red dead redemption 2 mod  menu 1.13 V1.3.8 by RF0oDxM0Dz (R1 + Square) '" onmouseout="msgs2.innerHTML='Status'" onclick="load_Oysters113()"> RDR2 V1.13 </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Red dead redemption 2 mod  menu 1.19 V1.3.8 by RF0oDxM0Dz (R1 + Square) '" onmouseout="msgs2.innerHTML='Status'" onclick="load_Oysters119()"> RDR2 V1.19 </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Red dead redemption 2 mod  menu 1.24 V1.3.8 by RF0oDxM0Dz (R1 + Square) '" onmouseout="msgs2.innerHTML='Status'" onclick="load_Oysters124()"> RDR2 V1.24 </button>
+<button class="button pb1" onMouseOver="msgs2.innerHTML='Red dead redemption 2 mod  menu 1.29 V1.3.8 by RF0oDxM0Dz (R1 + Square) '" onmouseout="msgs2.innerHTML='Status'" onclick="load_Oysters129()"> RDR2 V1.29 </button>
+<br><br>
+<h1 style="text-align:center;font-size:25px;color:white">Massive Thanks - SiSTRo ,Sleirsgoevy , Al Azif , Nazky And Many More...</h1>
+</div>
+<script>
+function GetPL(){
+ var req=new XMLHttpRequest();req.open("GET","http://127.0.0.1:9090/status");req.send();
+ req.onerror=function(){alert("Cannot Load Payload Because The BinLoader Server Is Not Running");return;};
+ req.onload=function(){
+  var responseJson=JSON.parse(req.responseText);
+  if(responseJson.status=="ready"){
+   getPayload(PLfile,function(req){if((req.status===200||req.status===304)&&req.response){sendPayload("http://127.0.0.1:9090",req.response);}});
+  }
+  else{alert("Cannot Load Payload Because The BinLoader Server Is Busy");return;}
+ };
+ var getPayload=function(pl,onLoadEndCallback){
+  var req=new XMLHttpRequest();req.open('GET',pl);req.send();req.responseType="arraybuffer";
+  req.onload=function(event){if(onLoadEndCallback)onLoadEndCallback(req,event);};
+ };
+ var sendPayload=function(url,data,onLoadEndCallback){
+  var req=new XMLHttpRequest();req.open("POST",url,true);req.send(data);
+  req.onload=function(event){
+   allset();
+   if(onLoadEndCallback)onLoadEndCallback(req,event);
+  };
+ };
+}
+function load_copych(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "CopyCH.bin";
+    GetPL();
+}
+
+function load_PS4Debug(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "ps4debug.bin";
+    GetPL();
+}
+
+function load_App2USB(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "app2usb.bin";
+    GetPL();
+}
+
+function load_BackupDB(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "backupdb.bin";
+    GetPL();
+}
+
+function load_AppDumper(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "appdumper.bin";
+    GetPL();
+}
+
+function load_pkgb(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "pkg-backup.bin";
+    GetPL();
+}
+
+function load_KernelDumper(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "kerneldumper.bin";
+    GetPL();
+}
+
+function load_ModuleDumper(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "mdumper.bin";
+    GetPL();
+}
+
+function load_RestoreDB(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "restoredb.bin";
+    GetPL();
+}
+
+function load_DisableASLR(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "disableaslr.bin";
+    GetPL();
+}
+
+function load_DisableUpdates(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "disableupdates.bin";
+    GetPL();
+}
+
+function load_EnableUpdates(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "enbaleupdates.bin";
+    GetPL();
+}
+
+function load_EnableBrowser(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "enbalebrowser.bin";
+    GetPL();
+}
+
+function load_FIX(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "fix.bin";
+    GetPL();
+}
+  
+function load_FTP(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "ftp.bin";
+    GetPL();
+}
+  
+function load_HistoryBlocker(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "historyblocker.bin";
+    GetPL();
+}
+  
+function load_RIFRenamer(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "rifrenamer.bin";
+    GetPL();
+}
+  
+function load_Orbis(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "Orbis-Toolbox-702.bin";
+    GetPL();
+}
+
+function load_Linux(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "LinuxLoader.bin";
+    GetPL();
+}
+
+function load_Linux3gb(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "LinuxLoader-3gb.bin";
+    GetPL();  
+}
+
+function load_GTAAr1(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "gtava1.bin";
+    GetPL();
+}
+
+function load_GTAAr2(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "gtava2.bin";
+    GetPL();
+}
+
+function load_GTAAr3(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "gtava3.bin";
+    GetPL();
+}
+
+function load_GTAL(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "gtavl.bin";
+    GetPL();
+}
+
+function load_GTABQ132(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "gtavbq132.bin";
+    GetPL();
+}
+
+function load_GTABQ133(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "gtavbq133.bin";
+    GetPL();
+}
+
+function load_gtavl9(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "Lamance9.bin";
+    GetPL();
+}
+
+function load_Oysters100(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "Oysters1.00.bin";
+    GetPL();
+}
+	
+function load_Oysters113(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "Oysters1.13.bin";
+    GetPL();
+}
+
+function load_Oysters119(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "Oysters1.19.bin";
+    GetPL();
+}
+
+function load_Oysters124(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "Oysters1.24.bin";
+    GetPL();
+}
+
+function load_Oysters129(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "Oysters1.29.bin";
+    GetPL();
+}
+
+
+function load_ToDex(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "ToDex.bin";
+    GetPL();
+}
+
+function load_WebRTE(){
+    msgs2.innerHTML="Payload sending... please wait";
+    PLfile = "WebRTE.bin";
+    GetPL();
+}
+</script>	 
+</body>
+</html>

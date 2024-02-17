@@ -1,0 +1,74 @@
+Check the official PS4 Trainer twitter page for any updates later than the update date of the offline trainer.
+https://twitter.com/PS4Trainer
+
+1. download the official list.json file from:
+http://ps4trainer.com/Trainer/list.json
+Chrome: RightClick and save as list.json
+FireFox: Click on the save button.
+
+
+2. Open the downloaded list.json file and open the offline trainer list.json file.
+NotePad++ recommended.
+
+Scroll to the bottom of both files.
+
+Copy and paste any new entries from the downloaded list.json to the bottom of the offline trainer list.json file.
+
+Make sure to keep the formatting the same:
+{
+"name": "Borderlands® 3",
+"title": "CUSA08025",
+"version": "01.16",
+"url": "./games/CUSA08025_01.16.json"
+},
+{
+"name": "MediEvil",
+"title": "CUSA12982",
+"version": "01.02",
+"url": "./games/CUSA12982_01.02.json"
+}
+]
+}
+
+NOTE! Each trainer entry is separated by }, but the very last trainer in the list must not end in a comma!! SEE ABOVE.
+
+
+3. Check if any of the new CUSA jpg files already exist in the offline trainer:
+Do a search in the offline trainer list.json for the CUSA number of the new trainers.
+eg search for: CUSA12982
+If you find any matching CUSA numbers then that means that there is already a CUSA jpg for that game
+so you do not need to download a new jpg for that one.
+
+If you do not find a matching CUSA then download the needed jpgs from:
+http://ps4trainer.com/Trainer/img/CUSA16745.jpg
+
+
+4. Download the new individual trainer json files for the missing games:
+Look at the "url": part of the missing trainer in the download list.json
+
+http://ps4trainer.com/Trainer/games/CUSA16745_01.01.json
+
+Chrome: RightClick and save as list.json
+FireFox: Click on the save button.
+
+
+5. Check that you have downloaded the right amount of files.
+If there were 4 new trainers on the ps4trainer website then you should have 4 new CUSAxxxx_xx.xx.json files.
+The amount of CUSAxxxx.jpg files will depend on how many 'NEW' games that are not already in the list. (see step 3)
+
+6. Update the offline trainer with the new files:
+Copy the CUSAxxxx_xx.xx.json and CUSAxxxx.jpg files to the 'games' folder in the Offline Trainer folder.
+Finally open the index.html file and update the date in the title with the date of the latest tweet with new trainers.
+
+
+7. Check the update worked:
+Open the Offline Trainer, search for the the new trainers and check that they open correctly.
+
+
+
+BEWARE!! Sometimes ps4trainer.com overwrites trainers that he already had in his list by mistake.
+To overcome this check each new trainer CUSA against your offline json list and check if there is already the same version of trainer in the list.
+
+e.g:
+If there is a new trainer for CUSA00002 v01.00 but one already exists.
+download the new trainer json (CUSA00002_01.00.json) and rename it to (CUSA00002_01.00_2.json) and then make sure the URL for the new trainer in your list.json corresponds to (CUSA00002_01.00_2.json).

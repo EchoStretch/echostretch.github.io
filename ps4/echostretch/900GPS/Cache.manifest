@@ -1,0 +1,20 @@
+CACHE MANIFEST 
+
+CACHE: 
+index.html
+int64.js
+rop.js
+exploit.js
+module/utils.js
+module/constants.js
+module/int64.js
+module/mem.js
+module/memtools.js
+module/rw.js
+webkit_psfree.js
+goldhen_2.4b16.bin
+
+NETWORK: 
+* 
+
+# Date: 2023-01-09T07:00:00Z:

@@ -1,0 +1,56 @@
+<html manifest="./672.manifest">
+<body onload="go()">
+    <title>Jailbreak with GoldHEN | 6.72</title>
+
+    <h1 style="font-family: 'Franklin Gothic Medium', serif; font-size: x-large;text-align: center;letter-spacing: 5px;color: white;">PS4Xploit</h1>
+    <style>
+    body{
+        background-color: rgb(77, 0, 150); 
+        color: white;
+    }
+    
+</style>
+<script>
+    if(document.cookie.indexOf('kex=0') >= 0)
+        window.location.href = document.referrer;
+</script>
+<script>
+function print(){}
+</script>
+<script src="./Jailbreak/672/exploit.js"></script>
+<script src="./Jailbreak/672/helpers.js"></script>
+<script src="./Jailbreak/672/malloc.js"></script>
+<script src="./Jailbreak/672/rop.js"></script>
+<script src="./Jailbreak/672/syscalls.js"></script>
+<script src="./Jailbreak/672/syscalls2.js"></script>
+<script src="./Jailbreak/672/jb.js"></script>
+<script>
+
+function loadScript(path)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', path, false);
+    xhr.send('');
+    eval.call(window, xhr.responseText);
+}
+
+(function()
+{
+    loadScript('./Jailbreak/672/loader.js')
+
+    loadScript('./Payloads/goldhen_672.js')
+
+})();
+</script>
+<script src="./Jailbreak/672/preloader.js"></script>
+<script>
+    if(main_ret == 0 || main_ret == 179)
+    {
+        alert("Jailbreak Success !\n PRESS OK AND WAIT FOR THE MEMORY ERROR !!!!!");
+        window.location = "../../?J=P";
+    }
+    else
+        alert("Jailbreak failed! Reboot your PS4 and try again.");
+</script>
+</body>
+</html>

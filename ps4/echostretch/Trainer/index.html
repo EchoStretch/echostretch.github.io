@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+<title>Echo Stretch PS4 Trainers</title>
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="main.css">
+<style>
+#ESpage {margin: 0 auto;}
+</style>
+<script>
+function WebRTEchecker(){
+if(sessionStorage.WebRTE!="no")rteSTAT.innerHTML="WebRTE Payload: <font color=yellow>Loaded ✔";
+else rteSTAT.innerHTML="WebRTE Payload: <font color=#dc3545>Not Loaded";
+}
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="jquery.min.js"></script>
+<script src="bootstrap.js"></script>
+<script src="lazyload.min.js"></script>
+<script src="BigInteger.min.js"></script>
+<script src="loadingoverlay.min.js"></script>
+<script src="main.js"></script>
+</head>
+<body class="bg-darker">
+<br>
+<table width="80%" border="1" bordercolor="red" cellspacing="0" cellpadding="0" id="ESpage">
+  <tbody>
+    <tr>
+      <td style="font-size:30px;text-align:center;color:white;">Echo Stretch PS4 Trainers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td width="33%"><div style="font-size:25px;text-align:center;color:#87FF33;" id="rteSTAT" >WebRTE Payload: Checking...</div></td>
+      <td width="33%"><div id="Tmsgs" style="font-size:25px;text-align:center;color:white;" >Update </div></td>
+		<script>
+		localStorage.standAlone="yes";function readTextFile(file, callback) {
+		var rawFile = new XMLHttpRequest();
+		rawFile.overrideMimeType("application/json");
+		rawFile.open("GET", file, true);
+		rawFile.onreadystatechange = function(){if (rawFile.readyState === 4 && rawFile.status == "200"){callback(rawFile.responseText);}}
+		rawFile.send(null);
+		}
+		readTextFile("./TrainerDate.json", function(text){
+        var data = JSON.parse(text);
+        localStorage.TrainerDate=data.TrainersUpdatedOn;
+        Tmsgs.innerHTML="Update "+localStorage.TrainerDate+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+        });	
+		</script>
+      <td width="33%"><div style="font-size:25px;text-align:center;color:#87FF33;" id="gameSTAT">Running Game ID: Checking...</div></td>
+    </tr>
+  </tbody>
+</table>
+
+		</td>
+    </tr>
+    <tr>
+      <td>
+         <div class=" ps_main_search">
+            <div class="ps_main_search_grid">
+                <div id="search1" class="ps_input" style="display:block;">
+                    <input class="browser-default" id="ip" type="search" placeholder="localhost or 0.0.0.0" />
+                </div>
+					<span></span>
+                <div id="search2" class="ps_input ps_input_with_icon">
+                    <input class="browser-default" id="search-input" type="search" placeholder="Search" />
+                    <img src="search-icon.png" alt="" />
+                </div>
+            </div>
+            </div>		
+		</td>
+    </tr>
+  </tbody>
+</table>
+		<div id="echo" class="jumbotron transparent">
+		    <div id="All" class="d-flex justify-content-center btn-toolbar">
+				<button class="btn btn-primary mx-2" data-toggle="modal" onclick="load_505(); return false">5.05</button>
+				<button class="btn btn-primary mx-2" data-toggle="modal" onclick="load_672MC(); return false">6.72</button>
+				<button class="btn btn-primary mx-2" data-toggle="modal" onclick="load_75XM(); return false">7.55</button>
+				<button class="btn btn-primary mx-2" data-toggle="modal" onclick="load_900MC(); return false">9.00</button>
+				<button class="btn btn-primary mx-2" data-toggle="modal" onclick="load_999X(); return false">url save</button>
+				<button class="btn btn-primary mx-2" data-toggle="modal" data-target="#credits-dialog">Credits</button> 
+			</div><br>
+			<div id="999X" style="text-align:center;display:none;">
+			<div class="d-flex justify-content-center">
+                <input id="link" class="form-control" type="text" placeholder="Url" autocomplete="on" style="text-align:center;max-width :320px">
+				<button class="btn btn-primary mx-2" data-toggle="modal" onMouseOver="msgs.innerHTML='If your host is http write your host address without http and index in URL and then click here'" onmouseout="msgs.innerHTML='PS4Trainer'" onclick="load_link(); return false">Go http</button>
+				<button class="btn btn-primary mx-2" data-toggle="modal" onMouseOver="msgs.innerHTML='If your host is https write your host address without https and index in URL and then click here'" onmouseout="msgs.innerHTML='PS4Trainer'" onclick="load_links(); return false">Go https</button>
+				<button class="btn btn-primary mx-2" data-toggle="modal" onMouseOver="msgs.innerHTML='Write full host address with http or https and index in URL and then click here'" onmouseout="msgs.innerHTML='PS4Trainer'" onclick="load_full(); return false">Go full URL</button>
+				<button class="btn btn-primary mx-2" data-toggle="modal" onMouseOver="msgs.innerHTML='Save your Host address'" onmouseout="msgs.innerHTML='PS4Trainer'" onclick="load_save(); return false">&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</button>
+            </div></div>
+        </div>
+        <div class="modal fade" id="credits-dialog">
+            <div class="modal-dialog" id="credits-dialog-size">
+                <div class="modal-content">
+                    <div class="modal-header bg-darker">
+                        <h4 class="modal-title">Credits</h4>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <a href="https://github.com/xemio/" target="_blank">golden</a><br>
+                        <a href="https://github.com/ChendoChap/" target="_blank">ChendoChap</a><br>
+                        <a href="https://twitter.com/TylerModsINC" target="_blank">TylerMods</a><br>
+                        <a href="https://github.com/ScriptSK" target="_blank">Shiningami</a><br>
+                        <a href="http://ps4trainer.com" target="_blank">PS4trainer</a><br>
+                        <a href="https://twitter.com/karo_sharifi" target="_blank">Karo</a><br>
+                     
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div id="container" class="center-block d-flex flex-wrap justify-content-center">
+
+        </div>
+        <div id="trainer-dialog" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="d-flex flex-wrap rounded m-1 bg-darker"  style="min-height: 128px;">
+                            <div class="bg-black">
+                                <img id="cover" class="coverholder m-1 rounded lazy" onerror="if (this.src !== 'error.png') this.src = 'error.png';" style="width :118px">
+                            </div>
+                            <div class="GInfo bg-black">
+                                <h5><small id="game"></small></h5>
+                                <h5><small id="cusa"></small></h5>
+                                <h5><small id="version"></small></h5>
+                                <h5><small id="credits" class="font-weight-light"></small></h5>
+                            </div>
+                        </div>
+                        <div id="mods">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <h6 class="mr-auto">Status : <small id="Message" class=" font-weight-light"></small></h6>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+ <script>
+ function load_save(){ 
+  var karo=document.getElementById('link').value
+ localStorage.setItem("url", karo );}
+ function load_link(){ 
+ var url = localStorage.getItem("url");
+ window.location.href="http://" + url + "/";}
+ function load_links(){ 
+ var url = localStorage.getItem("url");
+ window.location.href="https://" + url + "/";}
+ function load_full(){ 
+ var url = localStorage.getItem("url");
+ window.location.href="" + url + "";}
+ function load_900MC(){ 
+ window.location.href="../900MC/index.html";}
+ function load_75XM(){ 
+ window.location.href="../75XM/index.html";}
+ function load_672MC(){ 
+ window.location.href="../672MC/index.html";}
+ function load_505(){ 
+ window.location.href="../505/index.html";}
+function load_999X(){ 
+$("#999X").show();
+}
+</script>
+
+</body>
+</html>

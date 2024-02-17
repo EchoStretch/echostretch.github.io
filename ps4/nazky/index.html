@@ -1,0 +1,278 @@
+<html manifest="./PS4Xploit.manifest">
+    <head>
+        <script>
+            function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));document.title="Installing/Updating offline cache: " + Percent + "%";}
+            function DisplayCacheProgress(){setTimeout(function(){;document.title="Cache Success !";},1000);setTimeout(function(){window.location.href = document.referrer;},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+        </script>
+        <title>Hakkuraifu | PS4Xploit</title>
+
+        <link rel="shortcut icon" type="image/png" href="./CSS/Images/Icon.ico"/>
+        <link rel="stylesheet" href="CSS/index.css">
+        <link rel="stylesheet" href="CSS/font-awesome.min.css">
+        <link rel="stylesheet" href="CSS/raleway.css">
+        <link rel="stylesheet" href="./CSS/simple-notify.min.css" />
+
+        <script type="text/javascript" src="JS/index.js"></script>
+        <script type="text/javascript" src="JS/Payloads.js"></script>
+        <script src="./JS/simple-notify.min.js"></script>
+        <script src="./JS/jquery-3.6.0.js"></script>
+
+        <!--Christmas-->
+        <!--<script src='./JS/Snow.js'></script>
+        <link rel="stylesheet" href="./CSS/Snow.css" />-->
+
+        <!--Halloween-->
+        <!--<script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>-->
+
+    </head>
+
+    <script>
+        var fw = navigator.userAgent;
+        var fwFromUA = navigator.userAgent.substring(navigator.userAgent.indexOf('5.0 (') + 19, navigator.userAgent.indexOf(') Apple'));
+        fwFromUA = fwFromUA.replace('.', '');
+
+        function cache(){
+            if (fw.includes("9.00")) {
+                window.location = `./GoldHen/Cache-900.html`
+            } else {
+                window.location = `./GoldHen/Cache-${fwFromUA}.html`;
+            }
+            
+        }
+
+        function outputUpdate(vol) {
+            document.querySelector('#weight').value = vol;
+        }
+    </script>
+
+    <div><img id="BG" class="BG"></div>
+    
+
+    <body onload="ConsoleCheck()">
+
+        <div id="snowflakeContainer">
+            <span class="snowflake"></span>
+        </div>
+
+        <div class="Title" id="PSTitle">
+            <br>
+            <h1>PS4Xploit</h1>
+            <div class="BC" id="ButtonCredit"><a href="#" onclick="unfade('Credit')">Credit</a></div>
+            <div class="BJ" id="ButtonJailbreak" style="display: none;"><a href="./" >Jailbreak Again</a></div>
+        </div>
+        
+        <div class="PC" id="pc" style="display: none;">
+            
+            <div class="topmenu" id="Menu">
+                <a id="PayloadsList" href="#" onclick="unfade('Payloads'),fade('LinuxList'),fade('GamesMods')">Payloads</a>
+                <a id="GM" href="#" onclick="unfade('GamesMods'),fade('LinuxList'),fade('Payloads')">Games Mods</a>
+                <a id="LL" href="#" onclick="fade('GamesMods'),fade('Payloads'),unfade('LinuxList')">Linux</a>
+                <a href="javascript:void(0);" class="icon" onclick="Menu()">
+                  <i class="fa fa-bars"></i>
+                </a>
+            </div>
+
+            <div class="SelectF">
+                <input type="text" placeholder="PS4 IP Here" id="psip">
+
+                <select class="ComboBox" id="cb">
+                    <option>
+                        9.00
+                    </option>
+
+                    <option>
+                        7.55
+                    </option>
+
+                    <option>
+                        7.51
+                    </option>
+
+                    <option>
+                        7.50
+                    </option>
+
+                    <option>
+                        6.72
+                    </option>
+
+                    <option>
+                        5.05
+                    </option>
+                </select>
+            </div>
+    
+            <div class="payloadslist" id="Payloads">
+                <td>
+                    
+                    <table>
+                        <h1>Dumper</h1>
+                        <tr>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_KernelDumper()">Kernel Dumper</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_AppDumper()">App Dumper</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_VTXDumper()">VTX Dumper</a></div>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <h1>Tools</h1>
+                        <tr>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Orbis()">OrbisTool Box</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_PS4Debug()">PS4Debug</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_WebrRTE()">WebRTE</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_ToDex()">ToDex</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_FTP()">FTP</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_App2USB()">App2USB</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_DisableASLR()">Disable ASLR</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_ExitIDU()">ExitIDU</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_RIFRenamer()">RIF Renamer</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_HistoryBlocker()">History Blocker</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_DisableUpdates()">Disable Updates</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_EnableUpdates()">Enable Updates</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_BackupDB()">Backup DB</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_RestoreDB()">Restore DB</a></div>
+                            <!--<div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="windows.location(`./Bins/Web-Activator/`)">Wabe-Activator</a></div>-->
+                        </tr>
+                    </table>
+
+                </td>
+                
+            </div>
+
+            <div class="payloadslist" id="GamesMods" style="display: none;">
+                <td>
+                    
+                    <table>
+                        <h1>GTA V</h1>
+                        <tr>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_GTAArbic()">ArbicGuy (1.00)</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_GTAArbic3()">ArbicGuy (1.32)</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_GTAArbic33()">ArbicGuy (1.33)</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_GTAL()">Lamence (1.32)</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_GTABQ()">BeefQueefMod (1.33)</a></div>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <h1>RDR 2</h1>
+                        <tr>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Oysters100()">Oysters (1.00)</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Oysters113()">Oysters (1.13)</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Oysters119()">Oysters (1.19)</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Oysters124()">Oysters (1.24)</a></div>
+                        </tr>
+                    </table>
+                </td>
+                
+            </div>
+
+            
+            <div class="payloadslist" id="LinuxList" style="display: none;">
+                <td>
+                    
+                    <table>
+                        <h1>1080p</h1>
+                        <tr>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Linux()">Linux 1GB</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Linux2gb()">Linux 2GB</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Linux3gb()">Linux 3GB</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Linux4gb()">Linux 4GB</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Linux5gb()">Linux 5GB</a></div>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <h1>720p</h1>
+                        <tr>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Linux_720p()">Linux 1GB</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Linux2gb_720p()">Linux 2GB</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Linux3gb_720p()">Linux 3GB</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Linux4gb_720p()">Linux 4GB</a></div>
+                            <div class="button" id="button-Payload"><div id="circle"></div><a href="#" onclick="load_Linux5gb_720p()">Linux 5GB</a></div>
+                        </tr>
+                    </table>
+                </td>
+                
+            </div>
+
+            <div class="Credit" id="Credit" style="display: none;">
+                <div class="CloseButton" id="CB">
+                    <a onclick="fade('Credit')" href="#" style="text-decoration-style: none; text-decoration: none; color: white;">X</a>
+                </div>
+                <div class="TitleCredit" id="TC"> Credit </div>
+                <div class="BodyCredit" id="BC">
+                    <a id="Categorie"> Host Coder : </a>
+                    <a id="Name"> Nazky </a>
+                    <a id="Link" target="_blank" href="https://twitter.com/NazkyYT"> (@NazkyYT) </a>
+                    <br/>
+                    <br/>
+                    <a id="Categorie"> Payloads Coder : </a>
+                    <a id="Name"> Al-Azif </a>
+                    <a id="Link" target="_blank" href="https://twitter.com/_AlAzif"> (@_AlAzif) </a>
+                    <a id="Name">, Ctn </a>
+                    <a id="Link" target="_blank" href="https://twitter.com/_ctn123"> (@_ctn123) </a>
+                    <a id="Name">, Karo </a>
+                    <a id="Link" target="_blank" href="https://twitter.com/karo_sharifi"> (@karo_sharifi) </a>
+                    <a id="Name">, rfoodxmodz </a>
+                    <a id="Link" target="_blank" href="https://twitter.com/rfoodxmodz"> (@rfoodxmodz) </a>
+                    <a id="Name">, Kameleon </a>
+                    <a id="Link" target="_blank" href="https://twitter.com/KameleonRe"> (@KameleonRe) </a>
+                    <a id="Name">, Sistro </a>
+                    <a id="Name">, ... </a>
+                    <br/>
+                    <br/>
+                    <a id="Categorie"> Special Thanks : </a>
+                    <a id="Name"> KAZYUA </a>
+                    <a id="Link" target="_blank" href="https://twitter.com/NekitoKazuya"> (@NekitoKazuya) </a>
+                    <a id="Name">, Prb </a>
+                    <a id="Link" target="_blank" href="https://twitter.com/Prb29327239"> (@Prb29327239) </a>
+                    <a id="Name">, sleirsgoevy </a>
+                    <a id="Link" target="_blank" href="https://twitter.com/sleirsgoevy"> (@sleirsgoevy) </a>
+                    <a id="Name">, ChendoChap </a>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <a id="Categorie"> And thanks to all others Hosts/Payloads/Softwares/Exploits maker ! </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="PS4" id="ps4" style="display: none;">
+
+            <div class="bjb" id="ButtonJB">
+               <div id="Jailbreak" ><a style="text-decoration: none; color: rgb(212, 212, 212)" href="#" onclick="Jailbreak()">Jailbreak</a></div>
+            </div>
+            <div class="BCA" id="ButtonCache"><a href="#" onclick="cache()">Cache Jailbreak</a></div>
+
+            <div class="BP" id="ButtonPayload"><a href="./?J=P">Payload Page</a></div>
+
+
+            <script>
+                function Jailbreak() {
+                    if (fwFromUA == "755" || fwFromUA == "751" || fwFromUA == "750") {
+                        window.location = `./GoldHen/755.html`
+                    } else if (fw.includes("9.00")){
+                        window.location = "GoldHen/900.html"
+                    } else {
+                        window.location = `./GoldHen/${fwFromUA}.html`
+                    }
+                }
+            </script>
+    </body>
+
+</script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html manifest="Cache.manifest">
+<head>
+<style>
+html, body{
+background-color: black;
+}
+</style>
+<meta charset="utf-8">
+<title>Echo Stretch 9.00 GoldHEN Host</title>
+
+<script>
+// Check Cache Status
+if (window.applicationCache.status === 0) {
+window.location.replace("cache.html");
+}
+
+function loadBIN(){
+ var req = new XMLHttpRequest();
+ req.responseType = "arraybuffer";
+ req.open('GET', PLfile);
+ req.send();
+ req.onreadystatechange = function () {
+  if (req.readyState == 4) {
+   PLD = req.response;
+   var payload_buffer = chain.syscall(477, 0, PLD.byteLength*4 , 7, 0x1002, -1, 0);
+   var pl = p.array_from_address(payload_buffer, PLD.byteLength*4);
+   var padding = new Uint8Array(4 - (req.response.byteLength % 4) % 4);
+   var tmp = new Uint8Array(req.response.byteLength + padding.byteLength);
+   tmp.set(new Uint8Array(req.response), 0);
+   tmp.set(padding, req.response.byteLength);
+   var shellcode = new Uint32Array(tmp.buffer);
+   pl.set(shellcode,0);
+   var pthread = p.malloc(0x10);
+   chain.call(libKernelBase.add32(OFFSET_lk_pthread_create), pthread, 0x0, payload_buffer, 0);
+   allset();
+  }
+ };
+}
+
+function jbdone() {
+goldhen24();
+}
+
+function showMessage(msg) {
+document.getElementById("message").innerHTML = msg;
+document.getElementById("message").style.display = 'block';
+}
+
+function allset() {
+document.getElementById("message").innerHTML = LoadedMSG
+}
+
+function goldhen24(){
+    showMessage('Goldhen 2.4b16.2 loading... please wait');
+    LoadedMSG="GoldHEN 2.4b16.2 Loaded";
+    PLfile = "goldhen_2.4b16.bin";
+    setTimeout(loadBIN,50);
+}
+
+function CalcTime(dur){hrs=Math.floor(dur/1000/60/60);min=Math.floor(dur/1000/60-hrs*60);sec=Math.floor(dur/1000-min*60);mil=dur.toString().slice(-3);if (min!=0){ShowDuration=" - WK Exploited In : "+min+" minute"+(min==1?"":"s")+", "+sec+" second"+(sec==1?"":"s");}else {ShowDuration=" - WK Exploited In: "+sec+" second"+(sec==1?"":"s");}}
+function StartTimer(){StartTime=Date.now();}
+function EndTimer(){EndTime=Date.now();CalcTime(EndTime=Date.now()-StartTime);document.title+=ShowDuration;}
+
+</script>
+    <script defer src="int64.js"></script>
+    <script defer src="rop.js"></script>
+    <script defer src="exploit.js"></script>
+    <script defer src="module/utils.js"></script>
+    <script defer src="module/constants.js"></script>
+    <script defer src="module/int64.js"></script>
+    <script defer src="module/mem.js"></script>
+    <script defer src="module/memtools.js"></script>
+    <script defer src="module/rw.js"></script>
+    <script defer src="webkit_psfree.js"></script>
+</head>
+<body onload="setTimeout(run_psfree,1500);">
+<h1 style="text-align:center;font-size:25px;color:white;">Echo Stretch 9.00 GoldHEN Host</h1>
+<h1 id="message" style="text-align:center;font-size:20px;color:white;">Loading Exploit, Please Wait ...</h1>
+<h1 style="text-align:center;font-size:25px;color:white";>Massive Thanks - Znullptr, ChendoChap, Specter, Sleirsgoevy, SiSTRo, abc And Many More...</h1>
+</body>
+</html>

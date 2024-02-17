@@ -1,0 +1,51 @@
+<html manifest="./900.manifest">
+    <head id="head">
+        <script>
+            function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));document.title="Installing offline cache: " + Percent + "%";}
+            function DisplayCacheProgress(){setTimeout(function(){;document.title="Cache Success !";},1000);setTimeout(function(){window.location.href = "../";},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+        </script>
+        <title>Hakkuraifu | PS4Xploit</title>
+
+        <link rel="shortcut icon" type="image/png" href="./CSS/Images/Icon.ico"/>
+        <link rel="stylesheet" href="CSS/index.css">
+        <link rel="stylesheet" href="CSS/font-awesome.min.css">
+        <link rel="stylesheet" href="CSS/raleway.css">
+        <link rel="stylesheet" href="./CSS/simple-notify.min.css" />
+
+        <script type="text/javascript" src="JS/index.js"></script>
+        <script type="text/javascript" src="JS/Payloads.js"></script>
+        <script src="./JS/simple-notify.min.js"></script>
+        <script src="./JS/jquery-3.6.0.js"></script>
+
+        <!--Christmas-->
+        <!--<script src='./JS/Snow.js'></script>
+        <link rel="stylesheet" href="./CSS/Snow.css" />-->
+
+        <!--Halloween-->
+        <!--<script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>
+        <script type="text/javascript" async src="./JS/jsbat.js"></script>-->
+    </head>
+
+    <script>
+        var fwFromUA = navigator.userAgent.substring(navigator.userAgent.indexOf('5.0 (') + 19, navigator.userAgent.indexOf(') Apple'));
+        fwFromUA = fwFromUA.replace('.', '');
+    </script>
+
+    <div><img id="BG" class="BG"></div>
+    
+
+    <body onload="ConsoleCheck()">
+
+ 
+    </body>
+
+</script>
+</html>

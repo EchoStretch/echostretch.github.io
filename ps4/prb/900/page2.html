@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page2</title>
+<style>
+body{background-color:transparent;color:white;font-size:20px;text-align:center;margin:0;}
+button{width:388px;margin:5px 3px 5px 3px;padding:0px;border:2px solid #839ACA;text-align:left;color:white;outline:none;background:linear-gradient(180deg,rgba(74,91,134,1)0%,rgba(14,34,87,1)35%);}
+button:hover{cursor:pointer;background:linear-gradient(180deg,rgba(74,91,134,1)0%,rgba(4,9,23,1)35%);}
+.butIMG{display:inline-block;margin:-0px;border-right:3px solid #839ACA;outline:none;cursor:pointer;}
+.butIMG img{width:70px;height:70px;padding:5px 5px 2px 5px;cursor:pointer;}
+.butTXT{float:right;text-align:center;width:299px;font-size:28px;margin:22px 0 0 0;cursor:pointer;}
+.multiTXT{width:284px;height:80px;line-height:80px;text-align:center;font-size:28px;margin:0;outline:none;float:right;cursor:pointer;}
+.multiBUTTON{background:#D3D3D3;width:15px;height:78px;border:1px solid DimGray;line-height:78px;text-align:center;font-size:12px;color:DimGray;margin:0;outline:none;float:right;}
+.multiBUTTON:hover{background:#C8C8C8;color:black;}
+.multiOPTIONS{width:1px;height:1px;background:transparent;color:white;outline:none;border:0;font-size:28px;display:hidden;}
+</style>
+</head>
+<body>
+<div id=tip1>Current Payload Loading Method: Webkit</div>
+<br><br><br>
+<button><div onclick="load_goldhen()" onmouseover="GHover();" onmouseout="top.defaultTXT()" class=butIMG><img src="/900/img/hen.png"></div>
+<div onclick="openGHverSelection()" class=multiBUTTON tabindex=1 onmouseover="top.msgs.innerHTML='Select A GoldHEN Version To Use';" onmouseout="top.defaultTXT()">&#9660;</div>
+<div onclick="load_goldhen()" onmouseover="GHover()" onmouseout="top.defaultTXT()" class=multiTXT tabindex=0 >GoldHEN <span id=GHnum></span></div></button>
+<button onclick="load_app2usb()" onmouseover="top.msgs.innerHTML='App2USB - By Stooged [9.00 Port By Al Azif]'" onmouseout="top.defaultTXT()">
+<div class=butIMG><img src="/900/img/app2usb.png"></div><div class=butTXT>App2USB</div></button>
+<button onclick="load_dumperGU()" onmouseover="top.msgs.innerHTML='Game Dumper - By xVortex [9.00 MOD By Leeful]'" onmouseout="top.defaultTXT()">
+<div class=butIMG><img src="/900/img/dumper.png"></div><div class=butTXT>Game Dumper</div></button>
+<button onclick="load_DBbkup()" onmouseover="top.msgs.innerHTML='Database Backup v1.0 - By Leeful'" onmouseout="top.defaultTXT()">
+<div class=butIMG><img src="/900/img/dbbackup.png"></div><div class=butTXT>Database Backup</div></button>
+<button onclick="load_DBrest()" onmouseover="top.msgs.innerHTML='Database Restore v1.0 - By Leeful'" onmouseout="top.defaultTXT()">
+<div class=butIMG><img src="/900/img/dbrestore.png"></div><div class=butTXT>Database Restore</div></button>
+<button onclick="load_orbisTBX()" onmouseover="top.msgs.innerHTML='Orbis Toolbox - 1190 Alpha Build - By OSM-Made'" onmouseout="top.defaultTXT()">
+<div class=butIMG><img src="/900/img/OrbisToolbox.png"></div><div class=butTXT>Orbis ToolBox</div></button>
+<button onclick="load_enaDex()" onmouseover="top.msgs.innerHTML='Enable DEX v1.0 - By notzecoxao'" onmouseout="top.defaultTXT()">
+<div class=butIMG><img src="/900/img/DEXenable.png"></div><div class=butTXT>Enable DEX</div></button>
+<button onclick="load_disDex()" onmouseover="top.msgs.innerHTML='Disable DEX v1.0 - By Leeful'" onmouseout="top.defaultTXT()">
+<div class=butIMG><img src="/900/img/DEXdisable.png"></div><div class=butTXT>Disable DEX</div></button>
+<button onclick="load_ps4debug()" onmouseover="top.msgs.innerHTML='PS4Debug v1.0.15 - By ctn'" onmouseout="top.defaultTXT()">
+<div class=butIMG><img src="/900/img/ps4debug.png"></div><div class=butTXT>PS4Debug</div></button>
+<button onclick="load_binLdr9020()" onmouseover="top.msgs.innerHTML='BinLoader [Port 9020] - By ChendoChap'" onmouseout="top.defaultTXT()">
+<div class=butIMG><img src="/900/img/binloader.png"></div><div class=butTXT>BinLoader 9020</div></button>
+<button onclick="load_webrtePL()" onmouseover="top.msgs.innerHTML='WebRTE (PS4 Trainer Payload) v1.0 - By PS4 Trainer [9.00 Port By Karo]'" onmouseout="top.defaultTXT()">
+<div class=butIMG><img src="/900/img/WebRTE.png"></div><div class=butTXT>WebRTE</div></button>
+<button onclick="showTrainer()" onmouseover="top.msgs.innerHTML='Offline PS4 Trainer Menu - By Leeful'" onmouseout="top.defaultTXT()">
+<div class=butIMG><img src="/900/img/ps4trainer.png"></div><div class=butTXT>PS4 Trainer Menu</div></button>
+<br><br><br><br>
+<select class="multiOPTIONS" id="multiGH" disabled="true" onChange="updateGHverSelection()">
+<option value="v2.4b16.2">v2.4b16.2 - 01 Feb 2024 *Latest beta*</option>
+<option value="v2.3">v2.3 - 25 Dec 2022 *Latest*</option>
+<option value="v2.4b5">v2.4b5 - 28 Mar 2023</option>
+<option value="v2.1.2">v2.1.2 - 18 Feb 2022</option>
+<option value="v2.0b">v2.0b - 23 Nov 2021</option>
+
+</select>
+<div id=tip2>*Tip: Enable/Disable the GoldHEN BinLoader Server in GoldHEN settings to change the payload loading method.</div>
+<script>
+function openGHverSelection(){
+document.getElementById('multiGH').disabled = false;
+multiGH.dispatchEvent(new MouseEvent('mousedown',{bubbles:true}));
+}
+
+function updateGHverSelection(){
+GHnum.innerHTML=multiGH.value;
+localStorage.GHVER = multiGH.value;
+document.getElementById('multiGH').disabled = true;
+}
+
+if (localStorage.GHVER!=null){multiGH.value = localStorage.GHVER;}
+GHnum.innerHTML=multiGH.value;
+
+function GHover(){top.msgs.innerHTML='GoldHEN '+multiGH.value+' - By SiSTRo';}
+if (sessionStorage.blSERVER=="yes"){tip1.innerHTML="Current Payload Loading Method: GoldHEN BinLoader Server";}
+
+
+function PIK(){
+if (sessionStorage.blSERVER=="yes"){GetPL();}
+else {
+sessionStorage.lastPL=arguments.callee.caller.name;
+sessionStorage.loadWKPayload="yes";
+top.loadPayload(PAYLOAD,PLNAME);
+ }
+}
+
+function GetPL(){
+top.msgs.innerHTML="Loading "+PLNAME+" ...";
+var req=new XMLHttpRequest();req.open("GET","http://127.0.0.1:9090/status");req.send();
+req.onerror=function(){alert("Cannot Load Payload Because The BinLoader Server Is Not Running");return;};
+req.onload=function(){
+var responseJson=JSON.parse(req.responseText);
+if(responseJson.status=="ready"){
+getPayload(PAYLOAD,function(req){if((req.status===200||req.status===304)&&req.response){sendPayload("http://127.0.0.1:9090",req.response);}});
+}
+
+else{alert("Cannot Load Payload Because The BinLoader Server Is Busy");return;}
+};
+
+var getPayload=function(pl,onLoadEndCallback){
+var req=new XMLHttpRequest();req.open('GET',pl);req.send();req.responseType="arraybuffer";
+req.onload=function(event){if(onLoadEndCallback)onLoadEndCallback(req,event);};
+};
+
+var sendPayload=function(url,data,onLoadEndCallback){
+var req=new XMLHttpRequest();req.open("POST",url,true);req.send(data);
+req.onload=function(event){
+setTimeout(function(){top.msgs.innerHTML=PLNAME+" Loaded";},4000);
+if(onLoadEndCallback)onLoadEndCallback(req,event);
+};
+};
+}
+
+function load_goldhen(){PLNAME="GoldHEN "+multiGH.value;	PAYLOAD="/900/payloads/pl_GoldHEN"+multiGH.value+".bin";PIK();}
+function load_app2usb(){PLNAME="App2USB";				PAYLOAD="/900/payloads/pl_app2usb.bin";PIK();}
+function load_DBbkup(){PLNAME="Database Backup";		PAYLOAD="/900/payloads/pl_DatabaseBackup.bin";PIK();}
+function load_DBrest(){PLNAME="Database Restore";		PAYLOAD="/900/payloads/pl_DatabaseRestore.bin";PIK();}
+function load_enaDex(){PLNAME="Enable DEX";				PAYLOAD="/900/payloads/pl_DEXenable.bin";PIK();}
+function load_disDex(){PLNAME="Disable DEX";			PAYLOAD="/900/payloads/pl_DEXdisable.bin";PIK();}
+function load_ps4debug(){PLNAME="PS4Debug";				PAYLOAD="/900/payloads/pl_ps4debug.bin";PIK();}
+function load_dumperGU(){PLNAME="Game Dumper";			PAYLOAD="/900/payloads/pl_DumperGU.bin";PIK();}
+function load_orbisTBX(){PLNAME="Orbis Toolbox";		PAYLOAD="/900/payloads/pl_OrbisTB.bin";PIK();}
+function load_webrtePL(){PLNAME="WebRTE";				PAYLOAD="/900/payloads/pl_webrte.bin";PIK();}
+function showTrainer(){top.showTrainer();}
+
+function load_binLdr9020(){
+if(sessionStorage.blSERVER=="yes"){
+top.msgs.innerHTML="Loading Webkit, Please Wait ...";
+setTimeout(function(){top.WebkitExploit();top.runBinLoader()},500);
+}
+
+else top.runBinLoader();
+
+}
+
+if (sessionStorage.lastPL!=null) eval(sessionStorage.lastPL+"()");
+</script>	
+</body>
+</html> 

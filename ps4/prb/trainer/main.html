@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Leeful PS4 Offline Trainer</title>
+<link rel="stylesheet" href="css/main.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/lazyload.min.js"></script>
+<script src="js/BigInteger.min.js"></script>
+<script src="js/main.js"></script>
+</head>
+<body class="invbg">
+<!-- <div id=cacheBG><div id=cacheTXT>Installing Offline Trainer Cache: <span id=progress></span></div></div> -->
+<div id="LDR" class="HideLDR"><br><br><br><br><br><br><br><br><br><br><br><img src="css/LDR.gif" width=10%></div>
+
+<div id=BOX1 class=BOX>
+<img src="css/search-icon.png" style="padding:12px 10px 8px 20px;">
+<input id="search-input" type="text" placeholder="Search For Trainer ...">
+</div>	
+
+<div id=BOX2 class=BOX>
+<div id=rteSTAT class=STATBOX1>WebRTE Payload: Checking...</div>
+<div id=gameSTAT class=STATBOX2>Running Game ID: Checking...</div>
+<div id=totalSTAT class=STATBOX3>Trainers Found: <span id=tot1></span></div>
+
+<div id=infobutz>
+<button class=leeful onclick='$("#instructions-dialog").modal("show");disableNAV();'>Instructions</button> 
+<button class=leeful onclick='$("#tips-dialog").modal("show");disableNAV();'>Tips</button> 
+<button class=leeful onclick='$("#credits-dialog").modal("show");disableNAV();'>Info</button>
+</div>
+
+<div id=showbutz>
+<button class="leeful smaller" id=Sall onclick="$.get(listUrl,ShowALL)">Show ALL</button><br>
+<button class="leeful smaller" id=Snew onclick='$.get(listUrl,SortNEW)'>Sort: NEW</button>
+</div>
+
+<div id=sortbutz>
+<button class="leeful smaller" onclick='$.get(listUrl,SortCUSA)' id=Scusa> Sort: CUSA </button><br>
+<button class="leeful smaller" onclick='$.get(listUrl,SortZA)' id=Sza> Sort: Z > A</button>
+<button class="leeful smaller" onclick='$.get(listUrl,SortAZ)' id=Saz> Sort: A > Z</button>
+</div>
+</div>
+
+<div class="modal fade" id="instructions-dialog">
+<div class="modal-dialog">
+<div class="modal-content" style="left:-180px;width:950px">
+<div class="modal-header">
+<div class="h1">Instructions</div>
+<button type="button" class="btn btn-danger2" onclick='$("#instructions-dialog").modal("hide");enableNAV();' data-dismiss="modal">Close</button>
+</div>
+<div class="modal-body">
+1: Load HEN, GoldHEN or MIRA from the host menu of your choice.<br><br>
+2: Load the WebRTE(PS4Trainer) payload from the host menu of your choice.<br><br>
+3: Launch a game on the PS4 then open the Offline Trainer Menu.<br><br>
+4: If any trainers are available for your game they will automatically be shown when you open the trainer menu.<br><br>
+5: Click the trainer that matches the update version of your game and toggle the various cheat options ON or OFF.<br><br>
+• TIP!&nbsp; To find the update version of your game: Highlight the game on the PS4 main menu, press the options<br>
+&nbsp;&nbsp;button and select 'Information'.<br><br>
+• IMPORTANT!&nbsp; If you usually run your PS4 totally offline, make sure to run the WebRTE payload 'AFTER' you are<br>
+&nbsp;&nbsp;disconnected from the internet. e.g Do Not run the WebRTE payload and then disconnect from the internet!
+</div></div></div></div>
+
+<div class="modal fade" id="tips-dialog">
+<div class="modal-dialog" id="tips-dialog-size">
+<div class="modal-content">
+<div class="modal-header">
+<div class="h1">Tips</div>
+<button type="button" onclick='$("#tips-dialog").modal("hide");enableNAV();' class="btn btn-danger2" data-dismiss="modal">Close</button>
+</div>
+<div class="modal-body">
+<p>For Days Gone cheat |Infinite Ammo and/or Infinite Bandages| please be aware it may cause issues with crafting Molotovs. However... if you cannot craft them, get caught in a trap and it will fix this.</p></br>
+<p>If you see a cheat that increases a value such as money when you make a purhcase, DISABLE the cheat BEFORE your money goes negative.</p>      
+</div></div></div></div>
+
+<div class="modal fade" id="credits-dialog">
+<div class="modal-dialog" id="credits-dialog-size">
+<div class="modal-content" style="left:-160px;width:1090px">
+<div class="modal-header">
+<div class="h1">Information</div>
+<button type="button" onclick='$("#credits-dialog").modal("hide");enableNAV();' class="btn btn-danger2" data-dismiss="modal">Close</button>
+</div>
+<div class="modal-body">
+<div class="h4">Features:</div>
+• Existing ps4trainer.com database cleaned up. (Deleted 7 duplicates and added 4 extra trainers.)<br>
+• No need to enter an IP address.<br>
+• Automatically detects and displays if the WebRTE payload has been loaded or not.<br>
+• Detects what game is running and automatically shows the trainers for that game ID.<br>
+• When you reopen the trainer after enabling some cheats the trainer will now show you which cheats are currently enabled.<br>
+• Displays the total number of trainers available.<br>
+• The trainer will now only "attach" to the correct game but you can still browse all other trainers to see their available cheats.<br>
+• Cheats will only be selectable if the correct game ID for that trainer is running.<br>
+• Full navigation with the D-Pad is now supported.<br>
+• Sort trainers by A to Z, Z to A, by CUSA number or by Newest trainers.<br>
+&nbsp;&nbsp;(Tip: click the 'Sort: CUSA' button again to show the trainers in reverse CUSA order.)<br>
+• You can now search for a specific CUSA from the search box. e.g CUSA09303<br><br>
+<div class="h4">Credits:</div>
+• Original PS4 Trainer and WebRTE Payload Developers: 
+<a href="https://twitter.com/TylerMods" target="_blank">TylerMods</a>, 
+<a href="https://github.com/ScriptSK" target="_blank"> Shiningami</a>, 
+<a href="https://i.imgur.com/jOAMTdL.png" target="_blank"> Kraken</a>, 
+<a href="https://github.com/xemio/" target="_blank"> golden</a>, 
+<a href="https://github.com/ChendoChap/" target="_blank"> ChendoChap</a>, 
+<a href="https://twitter.com/LightningMods_" target="_blank"> LightningMods</a>,
+<a href="https://twitter.com/karo_sharifi" target="_blank"> Karo</a><br>
+• Official PS4 Trainer Website:
+<a href="http://ps4trainer.com" target="_blank">www.ps4trainer.com</a><br>
+• Offline Trainer: 
+<a href="https://twitter.com/KameleonRe" target="_blank">KameleonRE</a><br>
+• This Offline Trainer Menu Design, Updates and New Features: 
+<a href="https://gbatemp.net/members/leeful.371378/#info" target="_blank">Leeful</a><br>
+</div></div></div></div>
+	
+<div id="container" class="d-flex flex-wrap"></div>
+
+<div id="trainer-dialog" class="modal" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content"style="left:-20px;width:550px;">
+<div class="modal-body">
+<div class="d-flex flex-wrap rounded m-1 invbg"  style="min-height:128px;max-width:900px;">
+<div class="bg-black">
+<img id="cover" class="coverholder2" onerror="this.src='css/error.png';" style="width:118px">
+</div>
+<div class="TRNinfo2">
+<div><small id="game"></small></div>
+<div><small id="cusa"></small></div>
+<div><small id="version"></small></div>
+<div><small id="credits"></small></div>
+</div>
+</div>
+<div id="mods"></div>
+</div>
+<div class="modal-footer">
+<div class="mr-auto">Status : <span id="Message" class="statmsg"></span></div>
+<button type="button" class="btn btn-danger" data-dismiss="modal" onclick="document.body.style.overflow='auto';">Close</button>
+</div></div></div></div>
+<script>
+function ShowLDR(){LDR.className='ShowLDR';document.body.style.overflow='hidden';}
+function HideLDR(){LDR.className='HideLDR';}
+function WebRTEchecker(){
+if(sessionStorage.WebRTE!="no")rteSTAT.innerHTML="WebRTE Payload: Loaded";
+else rteSTAT.innerHTML="WebRTE Payload: <font color=#dc3545>Not Loaded";
+}
+function disableNAV(){
+var x=document.querySelectorAll('div[tabindex="0"], span[tabindex="0"]');var i;for(i=0;i<x.length;i++){x[i].setAttribute("tabIndex","");}
+document.getElementById('search-input').disabled=true;
+var x=document.querySelectorAll('.leeful');var i;for(i=0;i<x.length;i++){x[i].setAttribute("disabled","true");}
+}
+function enableNAV(){
+var x=document.querySelectorAll('div[tabindex=""], span[tabindex=""]'); var i;for(i=0;i<x.length;i++){x[i].setAttribute("tabIndex","0");}
+document.getElementById('search-input').disabled=false;
+var x=document.querySelectorAll('.leeful');var i;for(i=0;i<x.length;i++){x[i].removeAttribute("disabled");}
+}
+</script>
+</body>
+</html>

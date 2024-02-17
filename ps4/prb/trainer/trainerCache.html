@@ -1,0 +1,44 @@
+<html manifest="trainerCache.manifest"><!--  -->
+<head>
+<title>Prb Exploit Menu Essentials + Leeful Offline PS4 Trainer</title>
+<script>
+function readTextFile(file, callback){
+var rawFile = new XMLHttpRequest();
+rawFile.overrideMimeType("application/json");
+rawFile.open("GET", file, true);
+rawFile.onreadystatechange = function(){if (rawFile.readyState === 4 && rawFile.status == "200"){callback(rawFile.responseText);}}
+rawFile.send(null);
+}
+readTextFile("list.json", function(text){
+var data = JSON.parse(text);
+localStorage.TrainerDate=data.TrainersUpdatedOn;
+});
+UA=navigator.userAgent.substring(navigator.userAgent.indexOf("0.00 (")+28,navigator.userAgent.indexOf(") Apple"));
+history.replaceState(null,null,'../index.html');var histlength=history.length;history.go(-histlength);
+function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="Installing Trainer Files ... " + Percent + "%"};
+function DisplayCacheProgress(){
+setTimeout(function(){
+if (document.getElementById("msgs2")){
+msgs2.style.display="none";
+}
+if (!top.document.getElementById("msgs")){
+window.msgs.innerHTML="All Cache Files Installed Successfully. Reopen The Browser To Continue...";
+}
+top.msgs.innerHTML="All Cache Files Installed Successfully";
+top.myembed1.remove();
+if(UA=="5.05"||UA=="6.72"||UA=="layStation 4/9.00"){window.msgs.innerHTML="Now Turn Off The Internet & Reopen The Browser";}
+if(UA=="7.02"||UA=="7.55"){
+window.msgs.innerHTML="Now Turn Off The Internet & Reopen The Browser To Run The Webkit Exploit<br>If The Webkit Does Not Load After 5 Attempts Exit Browser And Try Again ...";}
+},1000);
+}
+window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+</script>
+</head>
+<body style="margin:0">
+<h1 id=msgs style='font-size:24px;text-align:center;color:white;-webkit-font-feature-settings:"tnum";font-feature-settings:"tnum";'></h1>
+<h1 id=msgs2 style='font-size:24px;text-align:center;color:white;-webkit-font-feature-settings:"tnum";font-feature-settings:"tnum";display:none;'>Menu Installed Successfully. Exit Browser Now If You Dont Use Trainer.<br>Or Continue To Install Trainer.</h1>
+<script>
+setTimeout(function(){if (localStorage.standAlone!="yes") msgs2.style.display="block";},500);
+</script>
+</body>
+</html>
